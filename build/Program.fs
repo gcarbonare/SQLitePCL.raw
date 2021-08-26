@@ -122,9 +122,7 @@ let main argv =
         ]
     for s in msbuild_dirs do
         let dir_name = sprintf "SQLitePCLRaw.%s" s
-        let dir = (Path.Combine(top, "src", dir_name))
-        exec "dotnet" "restore" dir
-        exec "msbuild" "/p:Configuration=Release" dir
+        exec "dotnet" "build -c Release" (Path.Combine(top, "src", dir_name))
 
     let msbuild_pack_dirs = [
         "lib.e_sqlite3.android"
@@ -135,9 +133,7 @@ let main argv =
         ]
     for s in msbuild_pack_dirs do
         let dir_name = sprintf "SQLitePCLRaw.%s" s
-        let dir = (Path.Combine(top, "src", dir_name))
-        exec "dotnet" "restore" dir
-        exec "msbuild" "/p:Configuration=Release /t:pack" dir
+        exec "dotnet" "pack -c Release" (Path.Combine(top, "src", dir_name))
 
     let get_build_prop p =
         let path_xml = Path.Combine(top, "Directory.Build.props")
@@ -186,7 +182,6 @@ let main argv =
         ]
 
     let fake_xunit_tfms = [
-        yield "netcoreapp2.1"
         yield "netcoreapp3.1"
         if RuntimeInformation.IsOSPlatform(OSPlatform.Windows) then yield "net461"
         ]

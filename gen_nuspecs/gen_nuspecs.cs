@@ -106,12 +106,12 @@ public static class gen
         switch (e)
         {
             case TFM.NONE: throw new Exception("TFM.NONE.AsString()");
-            case TFM.IOS: return "Xamarin.iOS10";
-            case TFM.TVOS: return "Xamarin.tvOS10";
-            case TFM.ANDROID: return "MonoAndroid80";
+            case TFM.IOS: return "net6.0-ios14";
+            case TFM.TVOS: return "net6.0-tvos14";
+            case TFM.ANDROID: return "net6.0-android21";
             case TFM.UWP: return "uap10.0";
             case TFM.NETSTANDARD20: return "netstandard2.0";
-            case TFM.XAMARIN_MAC: return "Xamarin.Mac20";
+            case TFM.XAMARIN_MAC: return "net6.0-macos";
             case TFM.NET461: return "net461";
             case TFM.NETCOREAPP31: return "netcoreapp3.1";
             case TFM.NET50: return "net5.0";
