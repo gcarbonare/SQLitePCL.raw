@@ -31,11 +31,17 @@ jobs:
         dotnet-version: 3.1.x
     - name: Install T4
       run: dotnet tool install --global dotnet-t4
-    - name: Install workloads
+    - name: Install workload ios
       run: 
         dotnet workload install ios
+    - name: Install workload tvos
+      run: 
         dotnet workload install tvos
+    - name: Install workload android
+      run: 
         dotnet workload install android
+    - name: Install workload macos
+      run: 
         dotnet workload install macos
     - name: Build
       run: |
