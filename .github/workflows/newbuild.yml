@@ -31,6 +31,12 @@ jobs:
         dotnet-version: 3.1.x
     - name: Install T4
       run: dotnet tool install --global dotnet-t4
+    - name: Install workloads
+      run: 
+        dotnet workload install ios
+        dotnet workload install tvos
+        dotnet workload install android
+        dotnet workload install macos
     - name: Build
       run: |
         cd SQLitePCL.raw/build
