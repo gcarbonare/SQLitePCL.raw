@@ -49,6 +49,6 @@ jobs:
         dotnet run
     - name: Push
       run: 
-        dotnet nuget push *.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
+        dotnet nuget push *.nupkg -s https://pageup.jfrog.io/artifactory/api/nuget/v3/nuget-release-local -username ${{ secrets.JFROG_USERNAME }} -password ${{ secrets.JFROG_PASSWORD }} --skip-duplicate
       working-directory: SQLitePCL.raw/nupkgs
 
